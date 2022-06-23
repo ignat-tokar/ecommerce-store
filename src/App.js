@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Cart from './components/Cart';
-import CartOverlay from './components/CartOverlay';
-import Category from './components/Category';
-import ProductDisplayPage from './components/ProductDisplayPage';
+import CartPage from './components/CartPage';
+import MainPage from './components/MainPage';
+import ProductPage from './components/ProductPage';
 
 class App extends React.Component {
 
@@ -12,10 +11,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="ecommerce-store/" element={<Category />}/>
-          <Route path="ecommerce-store/cart-overlay" element={<CartOverlay />}/>
-          <Route path="ecommerce-store/cart" element={<Cart />}/>
-          <Route path="ecommerce-store/product-display-page" element={<ProductDisplayPage />}/>
+          <Route path="ecommerce-store/" element={<MainPage />}/>
+          <Route path="ecommerce-store/cart" element={<CartPage />}/>
+          <Route path="ecommerce-store/product-page" element={<ProductPage />}/>
         </Routes>
       </BrowserRouter>
     );
