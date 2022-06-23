@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ecommerce-store/static/css/main.073c9b0a.css",
-    "main.js": "/ecommerce-store/static/js/main.925d7b07.js",
+    "main.js": "/ecommerce-store/static/js/main.9ef32bd8.js",
     "static/js/787.c565ce82.chunk.js": "/ecommerce-store/static/js/787.c565ce82.chunk.js",
     "index.html": "/ecommerce-store/index.html",
     "main.073c9b0a.css.map": "/ecommerce-store/static/css/main.073c9b0a.css.map",
-    "main.925d7b07.js.map": "/ecommerce-store/static/js/main.925d7b07.js.map",
+    "main.9ef32bd8.js.map": "/ecommerce-store/static/js/main.9ef32bd8.js.map",
     "787.c565ce82.chunk.js.map": "/ecommerce-store/static/js/787.c565ce82.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.925d7b07.js"
+    "static/js/main.9ef32bd8.js"
   ]
 }
