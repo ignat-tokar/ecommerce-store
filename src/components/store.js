@@ -1,3 +1,8 @@
+import { createStore } from "redux";
+
+const ADD_ITEM_TO_CART = 'ecommerce-store/main-store/ADD_ITEM_TO_CART';
+const REMOVE_ITEM_FROM_CART = 'ecommerce-store/main-store/REMOVE_ITEM_FROM_CART';
+
 let initialState = {
   products: [
     {
@@ -11,7 +16,8 @@ let initialState = {
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathergrey-2-600x600.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathernavy-2.jpg'
-      ]
+      ],
+      inCart: false
     },
     {
       id: 1,
@@ -24,11 +30,12 @@ let initialState = {
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathergrey-2-600x600.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathernavy-2.jpg'
-      ]
+      ],
+      inCart: true
     },
     {
       id: 2,
-      title: 'Apollo Running Short Grey',
+      title: 'Apollo Running Short Blue',
       price: '55',
       sizes: ['xs', 's', 'm', 'l'],
       colors: ['black', 'grey'],
@@ -37,19 +44,39 @@ let initialState = {
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathergrey-2-600x600.jpg',
         'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathernavy-2.jpg'
-      ]
+      ],
+      inCart: false
     }      
   ]
 }
 
-export const mainReducer = (state = initialState, action) => {
+const store = createStore((state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_ITEM': {
+    case ADD_ITEM_TO_CART: {
+      state = state.products.map(item => {
+        if(item.id === action.id){
+          item.inCart = true;
+        }
+        return item;
+      })
+      return state;
+    }
+    case REMOVE_ITEM_FROM_CART: {
+      state = state.products.map(item => {
+        if(item.id === action.id){
+          item.inCart = false;
+        }
+        return item;
+      })
       return state;
     }
     default:
       return state;
   }
-}
+});
 
-export const addItemActionCreator = () => ({type: 'ADD_ITEM'})
+export const addItemToCart = (id) => ({type: ADD_ITEM_TO_CART, id});
+export const removeItemFromCart = (id) => ({type: REMOVE_ITEM_FROM_CART, id});
+
+window.store = store;
+export default store;
