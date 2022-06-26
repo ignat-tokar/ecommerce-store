@@ -2,13 +2,16 @@ import { createStore } from "redux";
 
 const ADD_ITEM_TO_CART = 'ecommerce-store/main-store/ADD_ITEM_TO_CART';
 const REMOVE_ITEM_FROM_CART = 'ecommerce-store/main-store/REMOVE_ITEM_FROM_CART';
+const CHANGE_CURRENCY = 'ecommerce-store/main-store/CHANGE_CURRENCY';
 
 let initialState = {
+  currency: 'usd',
   products: [
     {
       id: 0,
       title: 'Apollo Running Short White',
-      price: '50',
+      usdPrice: 50,
+      price: 50,
       sizes: ['xs', 's', 'm', 'l'],
       colors: ['black', 'grey'],
       photoUrl: 'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
@@ -22,7 +25,8 @@ let initialState = {
     {
       id: 1,
       title: 'Apollo Running Short Grey',
-      price: '57',
+      usdPrice: 57,
+      price: 57,
       sizes: ['xs', 's', 'm', 'l'],
       colors: ['black', 'grey'],
       photoUrl: 'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathergrey-2-600x600.jpg',
@@ -36,7 +40,8 @@ let initialState = {
     {
       id: 2,
       title: 'Apollo Running Short Blue',
-      price: '55',
+      usdPrice: 55,
+      price: 55,
       sizes: ['xs', 's', 'm', 'l'],
       colors: ['black', 'grey'],
       photoUrl: 'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathernavy-2.jpg',
@@ -74,6 +79,24 @@ const store = createStore((state = initialState, action) => {
         })
       };
     }
+    case CHANGE_CURRENCY: {
+      return {
+        ...state, products: state.products.map(item => {
+          switch (action.currency) {
+            case 'usd': {
+              return {...item, price: item.usdPrice}
+            }
+            case 'eur': {
+              return {...item, price: item.usdPrice * 0.95}
+            }
+            case 'uah': {
+              return {...item, price: item.usdPrice * 29.5}
+            }
+            default: return item;
+          }
+        })
+      };
+    }    
     default:
       return state;
   }
@@ -81,6 +104,7 @@ const store = createStore((state = initialState, action) => {
 
 export const addItemToCart = (id) => ({type: ADD_ITEM_TO_CART, id});
 export const removeItemFromCart = (id) => ({type: REMOVE_ITEM_FROM_CART, id});
+export const changeCurrency = (currency) => ({type: CHANGE_CURRENCY, currency});
 
 window.store = store;
 export default store;

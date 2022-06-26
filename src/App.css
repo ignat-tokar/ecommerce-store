@@ -50,3 +50,20 @@ a {
   margin-left: 2pt;
   margin-top: 2pt;
 }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  font-size: 20pt;
+  padding: 10pt 10pt;
+  border-radius: 5pt;
+  background-color: black;
+  color: white;
+}
+
+select:after {
+  content: "";
+  display: block;
+}
