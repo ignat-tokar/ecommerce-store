@@ -53,22 +53,26 @@ let initialState = {
 const store = createStore((state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM_TO_CART: {
-      state = state.products.map(item => {
-        if(item.id === action.id){
-          item.inCart = true;
-        }
-        return item;
-      })
-      return state;
+      return {
+        ...state, products: state.products.map(item => {
+          if(item.id === action.id){
+            return {...item, inCart: true}
+          } else {
+            return item;
+          }
+        })
+      };
     }
     case REMOVE_ITEM_FROM_CART: {
-      state = state.products.map(item => {
-        if(item.id === action.id){
-          item.inCart = false;
-        }
-        return item;
-      })
-      return state;
+      return {
+        ...state, products: state.products.map(item => {
+          if(item.id === action.id){
+            return {...item, inCart: false}
+          } else {
+            return item;
+          }
+        })
+      };
     }
     default:
       return state;

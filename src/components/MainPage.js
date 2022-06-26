@@ -1,19 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { addItemToCart, removeItemFromCart } from './store';
 
 class MainPage extends React.Component {
 
   constructor(props){
     super(props);
-    this.buttonHandler = this.buttonHandler.bind(this);
+    this.addButtonHandler = this.addButtonHandler.bind(this);
+    this.removeButtonHandler = this.removeButtonHandler.bind(this);
+  }
+  
+  componentDidUpdate() {
+    console.log(this.props.products);
   }
 
-  buttonHandler (e) {
-    this.props.products.map(item => {
-      if(item.id === 1) console.log(item);
-      return item;
-    })
+  addButtonHandler (e) {
+    console.log('added');
+    this.props.addItemToCart(Number.parseInt(e.target.id));
+  }
+
+  removeButtonHandler (e) {
+    console.log('remove');
+    this.props.removeItemFromCart(Number.parseInt(e.target.id));
   }
 
   render() {
@@ -27,6 +36,11 @@ class MainPage extends React.Component {
               <h1>{product.title}</h1>
               <img style={{width: "300px"}} src={product.photoUrl} />
               <h2>Price: {product.price}$</h2>
+              {product.inCart
+                ? <button id={product.id} onClick={this.removeButtonHandler}>Remove from Cart</button>
+                : <button id={product.id} onClick={this.addButtonHandler}>Add to Cart</button>
+              }
+              
               <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}>Detail Info</NavLink>
             </div>
           );
@@ -42,4 +56,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(MainPage);
+export default connect(mapStateToProps, {addItemToCart, removeItemFromCart})(MainPage);
