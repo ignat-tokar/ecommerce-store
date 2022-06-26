@@ -1,32 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import AddRemoveButton from './AddRemoveButton';
 
 class ProductPage extends React.Component {
-
-  constructor(props) {
-    super(props);
-    const itemId = Number.parseInt(document.location.href.split('id=')[1]);
-    this.state = {
-      itemInfo: this.props.products.filter(item => item.id === itemId)[0]
-    }
-  }
 
   render() {
     return (
       <>
-        <NavLink to="/ecommerce-store/">Back</NavLink>
-        <div key={this.state.itemInfo.id}>
-          <h1>{this.state.itemInfo.title}</h1>
-          <img style={{ width: "300px" }} src={this.state.itemInfo.photoUrl} />
-          {this.state.itemInfo.allPhotos.map(photo => {
+        <NavLink className="Redirect-button" to="/ecommerce-store/">Back</NavLink>
+        <div key={this.props.itemInfo.id}>
+          <h1>{this.props.itemInfo.title}</h1>
+          <img style={{ width: "300px" }} src={this.props.itemInfo.photoUrl} />
+          {this.props.itemInfo.allPhotos.map(photo => {
                 return (
                   <img style={{width: "50px"}} src={photo} />
                 );
               })}
-          <h2>Price: {this.state.itemInfo.price}$</h2>
-          <h3>Sizes: {this.state.itemInfo.sizes.map(size => <span>{size} </span>)}</h3>
-          <h3>Colors: {this.state.itemInfo.colors.map(color => <span>{color} </span>)}</h3>
+          <h2>Price: {this.props.itemInfo.price}$</h2>
+          <h3>Sizes: {this.props.itemInfo.sizes.map(size => <span>{size} </span>)}</h3>
+          <h3>Colors: {this.props.itemInfo.colors.map(color => <span>{color} </span>)}</h3>
+          <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
         </div>
       </>
     );
@@ -34,8 +28,9 @@ class ProductPage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const itemId = Number.parseInt(document.location.href.split('id=')[1]);
   return {
-    products: state.products
+    itemInfo: state.products.filter(item => item.id === itemId)[0]
   }
 }
 

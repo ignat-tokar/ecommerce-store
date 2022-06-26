@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  /* text-decoration-style: none; */
+  color: black;
+  text-decoration-line: none;
+}
+.Redirect-button {
+  background-color: black;
+  color: white;
+  padding: 5pt;
+  font-size: 20pt;
+  margin-left: 2pt;
+  margin-top: 2pt;
+}

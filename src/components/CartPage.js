@@ -1,28 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import AddRemoveButton from './AddRemoveButton';
 
 class Cart extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      products: this.props.products.filter(item => item.inCart === true)
-    }
-  }
 
   render() {
     return (
       <>
         <h1>Cart</h1>
-        <NavLink to="/ecommerce-store/">Back</NavLink>
-        {this.state.products.map(product => {
+        <NavLink className="Redirect-button" to="/ecommerce-store/">Back</NavLink>
+        {this.props.products.map(product => {
           return (
             <div key={product.id}>
-              <h1>{product.title}</h1>
-              <img style={{width: "300px"}} src={product.photoUrl} />
+              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}><h1>{product.title}</h1></NavLink>
+              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}><img style={{width: "300px"}} src={product.photoUrl} /></NavLink>
               <h2>Price: {product.price}$</h2>
-              <button id={product.id} onClick={this.buttonHandler}>Add to Cart</button>
+              <AddRemoveButton id={product.id} inCart={product.inCart} />
               <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}>Detail Info</NavLink>
             </div>
           );
@@ -34,7 +28,7 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products.filter(item => item.inCart === true)
   }
 }
 
