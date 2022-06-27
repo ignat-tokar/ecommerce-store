@@ -20,12 +20,12 @@ class AddRemoveButton extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="Add-remove-button">
         {this.props.inCart
-          ? <button id={this.props.id} onClick={this.removeButtonHandler}>Remove from Cart</button>
-          : <button id={this.props.id} onClick={this.addButtonHandler}>Add to Cart</button>
+          ? <button id={this.props.id} onClick={this.removeButtonHandler}>REMOVE FROM CART</button>
+          : <button id={this.props.id} onClick={this.addButtonHandler}>ADD TO CART</button>
         }
-      </>
+      </div>
     );
   }
 }

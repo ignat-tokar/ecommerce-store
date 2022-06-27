@@ -37,7 +37,7 @@ let initialState = {
       photoUrl: 'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg',
       allPhotos: [
         'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg',
-        'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg'
+        'https://m.media-amazon.com/images/I/61Nze3qVi6L._AC_SR736,920_.jpg'
       ],
       inCart: false
     },

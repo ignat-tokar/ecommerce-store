@@ -119,3 +119,59 @@ select:after {
   width: 40%;
   float: left;
 }
+.Info-block span {
+  width: 100%;
+  float: left;
+}
+#title {
+  font-size: 20pt;
+  font-weight: 400;
+}
+#sub-title {
+  font-size: 15pt;
+  font-weight: 200;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+}
+#info {
+  font-weight: 400;
+  padding-top: 10pt;
+  padding-bottom: 10pt;
+}
+#size {
+  float: left;
+  padding: 8pt;
+  margin: 2pt;
+  cursor: pointer;
+}
+#size:hover {
+  background-color: black;
+  color: white;
+}
+#color {
+  float: left;
+  padding: 14pt;
+  margin: 2pt;
+  border: solid 2px green;
+  cursor: pointer;
+}
+#price {
+  float: left;
+  font-weight: 500;
+  font-size: 20pt;
+}
+#price img {
+  padding-right: 5pt;
+}
+.Add-remove-button {
+  float: left;
+  width: 100%;
+  margin-top: 30pt;
+}
+.Add-remove-button button {
+  font-size: 20pt;
+  padding: 5pt 50pt;
+  border: none;
+  background-color: green;
+  color: white;
+}

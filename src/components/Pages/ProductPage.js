@@ -17,16 +17,16 @@ class ProductPage extends React.Component {
       <Wrapper>
         <div className="Product-info" key={this.props.itemInfo.id}>
           <div className="Preview-block">
-            <div style={{float: "left"}}>
-            {this.props.itemInfo.allPhotos.map((photo, index) => {
-              return (
-                <div key={index}>
-                  <img style={{
-                    width: "100px",
-                  }} className="Little-img" src={photo} />
-                </div>
-              );
-            })}
+            <div style={{ float: "left" }}>
+              {this.props.itemInfo.allPhotos.map((photo, index) => {
+                return (
+                  <div key={index}>
+                    <img style={{
+                      width: "100px",
+                    }} className="Little-img" src={photo} />
+                  </div>
+                );
+              })}
             </div>
             <img style={{
               width: "400px",
@@ -34,11 +34,21 @@ class ProductPage extends React.Component {
             }} src={this.props.itemInfo.photoUrl} />
           </div>
           <div className="Info-block">
-            <h1>{this.props.itemInfo.title}</h1>
-            <h2>{this.props.itemInfo.subTitle}</h2>
-            <h3>SIZE:</h3>{this.props.itemInfo.sizes.map(size => <span>{size} </span>)}
-            <h3>COLOR:</h3>{this.props.itemInfo.colors.map(color => <span>{color} </span>)}            
-            <h3>PRICE:</h3>{this.props.itemInfo.price}
+            <span id="title">{this.props.itemInfo.title}</span>
+            <span id="sub-title">{this.props.itemInfo.subTitle}</span>
+            <div><span id="info">SIZE:</span>{this.props.itemInfo.sizes.map(size => <div id="size">{size}</div>)}</div>
+            <div><span id="info">COLOR:</span>{this.props.itemInfo.colors.map(color => <div id="color" style={{ backgroundColor: color }}></div>)}</div>
+            <div><span id="info">PRICE:</span>
+              <div id="price">
+                <img
+                  style={{
+                    width: "20px",
+                    height: "20px"
+                  }}
+                  src={this.props.currencyImg}
+                />
+                {this.props.itemInfo.price}
+              </div></div>
             <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
           </div>
         </div>
@@ -50,7 +60,8 @@ class ProductPage extends React.Component {
 const mapStateToProps = (state) => {
   const itemId = Number.parseInt(document.location.href.split('id=')[1]);
   return {
-    itemInfo: state.products.filter(item => item.id === itemId)[0]
+    itemInfo: state.products.filter(item => item.id === itemId)[0],
+    currencyImg: state.currencyImg
   }
 }
 
