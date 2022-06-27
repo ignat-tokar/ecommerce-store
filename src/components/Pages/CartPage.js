@@ -1,15 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import AddRemoveButton from './AddRemoveButton';
+import AddRemoveButton from '../IncludedComponents/AddRemoveButton';
+import Wrapper from '../IncludedComponents/Wrapper';
 
 class Cart extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>Cart</h1>
-        <NavLink className="Redirect-button" to="/ecommerce-store/">Back</NavLink>
+      <Wrapper title="Cart" navLink="/ecommerce-store/" buttonName="Back">
         {this.props.products.map(product => {
           return (
             <div key={product.id}>
@@ -21,7 +20,7 @@ class Cart extends React.Component {
             </div>
           );
         })}        
-      </>
+      </Wrapper>
     );
   }
 }

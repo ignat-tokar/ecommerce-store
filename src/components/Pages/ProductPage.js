@@ -1,16 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import AddRemoveButton from './AddRemoveButton';
+import AddRemoveButton from '../IncludedComponents/AddRemoveButton';
+import Wrapper from '../IncludedComponents/Wrapper';
 
 class ProductPage extends React.Component {
 
   render() {
     return (
-      <>
-        <NavLink className="Redirect-button" to="/ecommerce-store/">Back</NavLink>
+      <Wrapper title={this.props.itemInfo.title} navLink="/ecommerce-store/" buttonName="Back">
         <div key={this.props.itemInfo.id}>
-          <h1>{this.props.itemInfo.title}</h1>
           <img style={{ width: "300px" }} src={this.props.itemInfo.photoUrl} />
           {this.props.itemInfo.allPhotos.map(photo => {
                 return (
@@ -22,7 +20,7 @@ class ProductPage extends React.Component {
           <h3>Colors: {this.props.itemInfo.colors.map(color => <span>{color} </span>)}</h3>
           <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
         </div>
-      </>
+      </Wrapper>
     );
   }
 }

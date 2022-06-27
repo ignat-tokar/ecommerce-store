@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CartPage from './components/CartPage';
-import MainPage from './components/MainPage';
-import ProductPage from './components/ProductPage';
+import CartPage from './components/Pages/CartPage';
+import MainPage from './components/Pages/MainPage';
+import ProductPage from './components/Pages/ProductPage';
 
 class App extends React.Component {
 

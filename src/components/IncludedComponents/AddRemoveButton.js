@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addItemToCart, removeItemFromCart } from './store';
+import { addItemToCart, removeItemFromCart } from '../store';
 
 class AddRemoveButton extends React.Component {
 

@@ -1,4 +1,7 @@
 import { createStore } from "redux";
+import usdImg from "../assets/usd.png";
+import uahImg from "../assets/uah.png";
+import eurImg from "../assets/eur.png";
 
 const ADD_ITEM_TO_CART = 'ecommerce-store/main-store/ADD_ITEM_TO_CART';
 const REMOVE_ITEM_FROM_CART = 'ecommerce-store/main-store/REMOVE_ITEM_FROM_CART';
@@ -6,9 +9,24 @@ const CHANGE_CURRENCY = 'ecommerce-store/main-store/CHANGE_CURRENCY';
 
 let initialState = {
   currency: 'usd',
+  currencyImg: usdImg,
   products: [
     {
       id: 0,
+      title: 'The North Face Pride Pullover Hoodie',
+      usdPrice: 64.95,
+      price: 64.95,
+      sizes: ['7', '7.5', '8', '9', '10', '11'],
+      colors: ['black', 'white'],
+      photoUrl: 'https://m.media-amazon.com/images/I/71m27uOu1wL._AC_SR736,920_.jpg',
+      allPhotos: [
+        'https://m.media-amazon.com/images/I/71m27uOu1wL._AC_SR736,920_.jpg',
+        'https://m.media-amazon.com/images/I/71E5SSXdYmL._AC_SR736,920_.jpg'
+      ],
+      inCart: false
+    },        
+    {
+      id: 1,
       title: 'Apollo Running Short White',
       usdPrice: 50,
       price: 50,
@@ -23,7 +41,21 @@ let initialState = {
       inCart: false
     },
     {
-      id: 1,
+      id: 2,
+      title: 'The North Face Ea Basin Funnel Neck Long Sleeve',
+      usdPrice: 88.95,
+      price: 88.95,
+      sizes: ['XS', 'SM', 'XL'],
+      colors: ['black'],
+      photoUrl: 'https://m.media-amazon.com/images/I/614+HTShODL._AC_SR736,920_.jpg',
+      allPhotos: [
+        'https://m.media-amazon.com/images/I/614+HTShODL._AC_SR736,920_.jpg',
+        'https://m.media-amazon.com/images/I/71rxtlsXotL._AC_SR736,920_.jpg'
+      ],
+      inCart: false
+    },
+    {
+      id: 3,
       title: 'adidas Adilette Shower',
       usdPrice: 24.95,
       price: 24.95,
@@ -36,66 +68,22 @@ let initialState = {
       ],
       inCart: true
     },
-    {
-      id: 2,
-      title: 'Cole Haan GrandPro Rally Canvas Court Sneaker',
-      usdPrice: 85,
-      price: 85,
-      sizes: ['7', '7.5', '8', '9', '10', '11'],
-      colors: ['white'],
-      photoUrl: 'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
-      allPhotos: [
-        'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
-        'https://m.media-amazon.com/images/I/71j6fe9jFiL._AC_SR920,736_.jpg',
-        'https://m.media-amazon.com/images/I/61zBRFstfqL._AC_SR920,736_.jpg'
-      ],
-      inCart: false
-    },
-    {
-      id: 3,
-      title: 'The North Face Pride Pullover Hoodie',
-      usdPrice: 64.95,
-      price: 64.95,
-      sizes: ['7', '7.5', '8', '9', '10', '11'],
-      colors: ['black', 'white'],
-      photoUrl: 'https://m.media-amazon.com/images/I/71m27uOu1wL._AC_SR736,920_.jpg',
-      allPhotos: [
-        'https://m.media-amazon.com/images/I/71m27uOu1wL._AC_SR736,920_.jpg',
-        'https://m.media-amazon.com/images/I/71E5SSXdYmL._AC_SR736,920_.jpg'
-      ],
-      inCart: false
-    },
+    // {
+    //   id: 4,
+    //   title: 'The North Face Pride Tank',
+    //   usdPrice: 29.95,
+    //   price: 29.95,
+    //   sizes: ['XS', 'SM', 'XL', '2XL'],
+    //   colors: ['white', 'black'],
+    //   photoUrl: 'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
+    //   allPhotos: [
+    //     'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
+    //     'https://m.media-amazon.com/images/I/71zfLbhMoIL._AC_SR736,920_.jpg'
+    //   ],
+    //   inCart: false
+    // }, 
     {
       id: 4,
-      title: 'The North Face Pride Tank',
-      usdPrice: 29.95,
-      price: 29.95,
-      sizes: ['XS', 'SM', 'XL', '2XL'],
-      colors: ['white', 'black'],
-      photoUrl: 'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
-      allPhotos: [
-        'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
-        'https://m.media-amazon.com/images/I/71zfLbhMoIL._AC_SR736,920_.jpg'
-      ],
-      inCart: false
-    },
-    {
-      id: 4,
-      title: 'The North Face Ea Basin Funnel Neck Long Sleeve',
-      usdPrice: 88.95,
-      price: 88.95,
-      sizes: ['XS', 'SM', 'XL'],
-      colors: ['black'],
-      photoUrl: 'https://m.media-amazon.com/images/I/614+HTShODL._AC_SR736,920_.jpg',
-      allPhotos: [
-        'https://m.media-amazon.com/images/I/614+HTShODL._AC_SR736,920_.jpg',
-        'https://m.media-amazon.com/images/I/71rxtlsXotL._AC_SR736,920_.jpg'
-      ],
-      inCart: false
-    }
-    ,
-    {
-      id: 5,
       title: 'The North Face Box Nse Pullover Hoodie',
       usdPrice: 54.95,
       price: 54.95,
@@ -108,8 +96,24 @@ let initialState = {
         'https://m.media-amazon.com/images/I/61PkcMurqAL._AC_SR736,920_.jpg'
       ],
       inCart: false
-    }    
-  ]
+    },    
+    {
+      id: 5,
+      title: 'Cole Haan GrandPro Rally Canvas Court Sneaker',
+      usdPrice: 85,
+      price: 85,
+      sizes: ['7', '7.5', '8', '9', '10', '11'],
+      colors: ['white'],
+      photoUrl: 'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
+      allPhotos: [
+        'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
+        'https://m.media-amazon.com/images/I/71j6fe9jFiL._AC_SR920,736_.jpg',
+        'https://m.media-amazon.com/images/I/61zBRFstfqL._AC_SR920,736_.jpg'
+      ],
+      inCart: false
+    }
+  ],
+  cartProducts: []
 }
 
 const store = createStore((state = initialState, action) => {
@@ -137,8 +141,22 @@ const store = createStore((state = initialState, action) => {
       };
     }
     case CHANGE_CURRENCY: {
+      let cImg = null;
+      switch(action.currency) {
+        case 'uah': 
+          cImg = uahImg;
+          break;
+        case 'eur': 
+          cImg = eurImg;
+          break;
+        default: cImg = usdImg;
+      }
+      console.log(cImg);
       return {
-        ...state, products: state.products.map(item => {
+        ...state, 
+        currency: action.currency, 
+        currencyImg: cImg,
+        products: state.products.map(item => {
           switch (action.currency) {
             case 'usd': {
               return { ...item, price: item.usdPrice }
