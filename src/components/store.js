@@ -27,16 +27,15 @@ let initialState = {
     },        
     {
       id: 1,
-      title: 'Apollo Running Short White',
-      usdPrice: 50,
-      price: 50,
-      sizes: ['xs', 's', 'm', 'l'],
-      colors: ['black', 'grey'],
-      photoUrl: 'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
+      title: 'Brooks Distance Graphic Tank',
+      usdPrice: 31.95,
+      price: 31.95,
+      sizes: ['xs', 's', 'm', 'md', 'lg', 'l'],
+      colors: ['white'],
+      photoUrl: 'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg',
       allPhotos: [
-        'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-cream-2.jpg',
-        'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathergrey-2-600x600.jpg',
-        'https://www.hankplayer.com/wp-content/uploads/mens-apolloblueprint-heathernavy-2.jpg'
+        'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg',
+        'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg'
       ],
       inCart: false
     },
@@ -56,32 +55,18 @@ let initialState = {
     },
     {
       id: 3,
-      title: 'adidas Adilette Shower',
-      usdPrice: 24.95,
-      price: 24.95,
-      sizes: ['4', '5', '6', '9', '10', '11'],
-      colors: ['black', 'white'],
-      photoUrl: 'https://m.media-amazon.com/images/I/71DVmpfEniL._AC_SR920,736_.jpg',
+      title: 'Brooks Distance Graphic Short Sleeve',
+      usdPrice: 36,
+      price: 36,
+      sizes: ['sm'],
+      colors: ['blue', 'red'],
+      photoUrl: 'https://m.media-amazon.com/images/I/719Uej+geCL._AC_SR736,920_.jpg',
       allPhotos: [
-        'https://m.media-amazon.com/images/I/71DVmpfEniL._AC_SR920,736_.jpg',
-        'https://m.media-amazon.com/images/I/51+B9Sray+L._AC_SR920,736_.jpg'
+        'https://m.media-amazon.com/images/I/719Uej+geCL._AC_SR736,920_.jpg',
+        'https://m.media-amazon.com/images/I/71J9Gs83ydL._AC_SR736,920_.jpg'
       ],
       inCart: true
     },
-    // {
-    //   id: 4,
-    //   title: 'The North Face Pride Tank',
-    //   usdPrice: 29.95,
-    //   price: 29.95,
-    //   sizes: ['XS', 'SM', 'XL', '2XL'],
-    //   colors: ['white', 'black'],
-    //   photoUrl: 'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
-    //   allPhotos: [
-    //     'https://m.media-amazon.com/images/I/61gdwGfWaCL._AC_SR736,920_.jpg',
-    //     'https://m.media-amazon.com/images/I/71zfLbhMoIL._AC_SR736,920_.jpg'
-    //   ],
-    //   inCart: false
-    // }, 
     {
       id: 4,
       title: 'The North Face Box Nse Pullover Hoodie',
@@ -99,16 +84,15 @@ let initialState = {
     },    
     {
       id: 5,
-      title: 'Cole Haan GrandPro Rally Canvas Court Sneaker',
-      usdPrice: 85,
-      price: 85,
-      sizes: ['7', '7.5', '8', '9', '10', '11'],
-      colors: ['white'],
-      photoUrl: 'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
+      title: 'PUMA Performance Tee',
+      usdPrice: 24.95,
+      price: 24.95,
+      sizes: ['sm', 'md'],
+      colors: ['black', 'white'],
+      photoUrl: 'https://m.media-amazon.com/images/I/71MDgf92xxL._AC_SR736,920_.jpg',
       allPhotos: [
-        'https://m.media-amazon.com/images/I/71+Qifi+1yL._AC_SR920,736_.jpg',
-        'https://m.media-amazon.com/images/I/71j6fe9jFiL._AC_SR920,736_.jpg',
-        'https://m.media-amazon.com/images/I/61zBRFstfqL._AC_SR920,736_.jpg'
+        'https://m.media-amazon.com/images/I/71MDgf92xxL._AC_SR736,920_.jpg',
+        'https://m.media-amazon.com/images/I/71ezDKQOufL._AC_SR736,920_.jpg'
       ],
       inCart: false
     }
