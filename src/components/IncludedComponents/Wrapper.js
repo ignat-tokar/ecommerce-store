@@ -6,9 +6,13 @@ function Wrapper(props) {
   return (
     <div>
       <div className="Header-block">
-        <span>{props.title}</span>
+        <span className="Category-block">
+          <NavLink to="/ecommerce-store/"><span className="Selected">WOMEN</span></NavLink>
+          <span>MEN</span>
+          <span>KIDS</span>
+        </span>
         <CurrencySelect />
-        <NavLink className="Redirect-button" to={props.navLink}><img src={cartImg} /></NavLink>
+        <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /></NavLink>
       </div>
       <div>
         {props.children}

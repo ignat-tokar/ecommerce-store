@@ -8,7 +8,7 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <Wrapper title="Main page" navLink="/ecommerce-store/cart" buttonName="Cart page">
+      <Wrapper>
         <div className="Main-page-overview">
           {this.props.products && this.props.products.map(product => {
             return (

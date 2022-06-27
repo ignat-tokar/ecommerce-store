@@ -5,20 +5,42 @@ import Wrapper from '../IncludedComponents/Wrapper';
 
 class ProductPage extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: this.props.itemInfo.title,
+    }
+  }
+
   render() {
     return (
-      <Wrapper title={this.props.itemInfo.title} navLink="/ecommerce-store/" buttonName="Back">
-        <div key={this.props.itemInfo.id}>
-          <img style={{ width: "300px" }} src={this.props.itemInfo.photoUrl} />
-          {this.props.itemInfo.allPhotos.map(photo => {
-                return (
-                  <img style={{width: "50px"}} src={photo} />
-                );
-              })}
-          <h2>Price: {this.props.itemInfo.price}$</h2>
-          <h3>Sizes: {this.props.itemInfo.sizes.map(size => <span>{size} </span>)}</h3>
-          <h3>Colors: {this.props.itemInfo.colors.map(color => <span>{color} </span>)}</h3>
-          <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
+      <Wrapper>
+        <div className="Product-info" key={this.props.itemInfo.id}>
+          <div className="Preview-block">
+            <div style={{float: "left"}}>
+            {this.props.itemInfo.allPhotos.map((photo, index) => {
+              return (
+                <div key={index}>
+                  <img style={{
+                    width: "100px",
+                  }} className="Little-img" src={photo} />
+                </div>
+              );
+            })}
+            </div>
+            <img style={{
+              width: "400px",
+              paddingLeft: "100px"
+            }} src={this.props.itemInfo.photoUrl} />
+          </div>
+          <div className="Info-block">
+            <h1>{this.props.itemInfo.title}</h1>
+            <h2>{this.props.itemInfo.subTitle}</h2>
+            <h3>SIZE:</h3>{this.props.itemInfo.sizes.map(size => <span>{size} </span>)}
+            <h3>COLOR:</h3>{this.props.itemInfo.colors.map(color => <span>{color} </span>)}            
+            <h3>PRICE:</h3>{this.props.itemInfo.price}
+            <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
+          </div>
         </div>
       </Wrapper>
     );

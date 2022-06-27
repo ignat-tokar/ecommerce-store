@@ -8,7 +8,8 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <Wrapper title="Cart" navLink="/ecommerce-store/" buttonName="Back">
+      <Wrapper>
+        <h1>Cart</h1>
         {this.props.products.map(product => {
           return (
             <div key={product.id}>

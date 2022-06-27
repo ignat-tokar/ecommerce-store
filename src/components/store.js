@@ -13,10 +13,11 @@ let initialState = {
   products: [
     {
       id: 0,
-      title: 'The North Face Pride Pullover Hoodie',
+      title: 'The North Face',
+      subTitle: 'Pride Pullover Hoodie',
       usdPrice: 64.95,
       price: 64.95,
-      sizes: ['7', '7.5', '8', '9', '10', '11'],
+      sizes: ['XS', 'S', 'M', 'L'],
       colors: ['black', 'white'],
       photoUrl: 'https://m.media-amazon.com/images/I/71m27uOu1wL._AC_SR736,920_.jpg',
       allPhotos: [
@@ -27,10 +28,11 @@ let initialState = {
     },        
     {
       id: 1,
-      title: 'Brooks Distance Graphic Tank',
+      title: 'Brooks Distance',
+      subTitle: 'Graphic Tank',
       usdPrice: 31.95,
       price: 31.95,
-      sizes: ['xs', 's', 'm', 'md', 'lg', 'l'],
+      sizes: ['XS', 'S', 'M', 'MD', 'LG', 'L'],
       colors: ['white'],
       photoUrl: 'https://m.media-amazon.com/images/I/61DW3CsCjKL._AC_SR736,920_.jpg',
       allPhotos: [
@@ -41,7 +43,8 @@ let initialState = {
     },
     {
       id: 2,
-      title: 'The North Face Ea Basin Funnel Neck Long Sleeve',
+      title: 'The North Face Ea Basin',
+      subTitle: 'Funnel Neck Long Sleeve',
       usdPrice: 88.95,
       price: 88.95,
       sizes: ['XS', 'SM', 'XL'],
@@ -55,10 +58,11 @@ let initialState = {
     },
     {
       id: 3,
-      title: 'Brooks Distance Graphic Short Sleeve',
+      title: 'Brooks Distance',
+      subTitle: 'Graphic Short Sleeve',
       usdPrice: 36,
       price: 36,
-      sizes: ['sm'],
+      sizes: ['SM', 'M', 'L'],
       colors: ['blue', 'red'],
       photoUrl: 'https://m.media-amazon.com/images/I/719Uej+geCL._AC_SR736,920_.jpg',
       allPhotos: [
@@ -69,7 +73,8 @@ let initialState = {
     },
     {
       id: 4,
-      title: 'The North Face Box Nse Pullover Hoodie',
+      title: 'The North Face Box',
+      subTitle: 'Nse Pullover Hoodie',
       usdPrice: 54.95,
       price: 54.95,
       sizes: ['XS', 'SM', 'MD', 'XL', '2XL'],
@@ -84,10 +89,11 @@ let initialState = {
     },    
     {
       id: 5,
-      title: 'PUMA Performance Tee',
+      title: 'PUMA',
+      subTitle: 'Performance Tee',
       usdPrice: 24.95,
       price: 24.95,
-      sizes: ['sm', 'md'],
+      sizes: ['SM', 'MD', 'M', 'L'],
       colors: ['black', 'white'],
       photoUrl: 'https://m.media-amazon.com/images/I/71MDgf92xxL._AC_SR736,920_.jpg',
       allPhotos: [
