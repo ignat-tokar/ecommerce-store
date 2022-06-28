@@ -12,7 +12,7 @@ function Wrapper(props) {
           <span>KIDS</span>
         </span>
         <CurrencySelect />
-        <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /></NavLink>
+        <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /> <span id="cart-count">1</span></NavLink>
       </div>
       <div>
         {props.children}

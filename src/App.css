@@ -36,16 +36,17 @@ select:after {
 }
 .Header-block .Category-block span {
   margin: 20pt;
+  margin-left: 40pt;
 }
 .Header-block .Category-block span:hover {
-  color: green;
+  color: rgb(25, 177, 25);
 }
 .Header-block .Category-block .Selected {
-  color: green;
+  color: rgb(25, 177, 25);
   padding-bottom: 15pt;
   padding-right: 10pt;
   padding-left: 10pt;
-  border-bottom: solid 2px green;
+  border-bottom: solid 2px rgb(25, 177, 25);
 }
 .Header-block .Currency-select {
   width: 5%;
@@ -64,12 +65,15 @@ select:after {
   margin-top: 2pt;
 }
 .Redirect-button img {
-  width: 20px;
-  height: 20px;
+  width: 27px;
+  height: 27px;
 }
 
 
 /*PRODUCT OVERVIEW MAIN*/
+.Main-page-overview {
+  padding-left: 40pt;
+}
 .Product-overview-main {
   width: 22%;
   float: left;
@@ -113,7 +117,7 @@ select:after {
   border: solid 2px white;
 }
 .Little-img:hover {
-  border: solid 2px green;
+  border: solid 2px rgb(25, 177, 25);
 }
 .Info-block {
   width: 40%;
@@ -152,7 +156,7 @@ select:after {
   float: left;
   padding: 14pt;
   margin: 2pt;
-  border: solid 2px green;
+  border: solid 2px rgb(25, 177, 25);
   cursor: pointer;
 }
 #price {
@@ -169,13 +173,140 @@ select:after {
   margin-top: 30pt;
 }
 .Add-remove-button button:hover {
-  background-color: rgb(25, 177, 25);
+  background-color: rgb(42, 194, 42);
 }
 .Add-remove-button button {
   font-size: 20pt;
   padding: 5pt 50pt;
   border: none;
-  background-color: green;
+  background-color: rgb(25, 177, 25);
   color: white;
   cursor: pointer
+}
+
+/* CART PAGE */
+.Cart-page {
+  margin-left: 40pt;
+}
+.Cart-page h1 {
+  font-weight: 400;
+  padding: 20pt 0;
+}
+.Cart-info-block #price {
+  font-size: 15pt;
+}
+.Cart-info-block .Info-block {
+  padding: 20pt 0;
+  border-top: solid 2px grey;
+  border-bottom: solid 2px grey;
+  width: 95%;
+}
+.Cart-info-block .Info-block #left-side {
+  width: 80%;
+  float: left;
+}
+.Cart-info-block .Info-block #right-side {
+  width: 20%;
+  float: left;
+}
+.Span-block-cart {
+  width: 20%;
+  float: left;
+}
+.Span-block-cart span {
+  font-size: 15pt;
+}
+#plus {
+  font-size: 20pt;
+  font-weight: 100;
+  width: 50%;
+  padding: 3pt 5pt;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+#minus {
+  font-size: 20pt;
+  font-weight: 100;
+  width: 50%;
+  /* padding: 0pt 5pt; */
+  padding: 3pt 5pt;
+  text-align: center;
+  border: 1px solid black;  
+  cursor: pointer;
+}
+#count {
+  text-align: center;
+  width: 80%;
+  padding: 60pt 0;
+}
+#right-side img {
+  width: 80%;
+  float: left;
+  /* padding-top: 10pt;
+  padding-left: 10pt; */
+  cursor: pointer;
+}
+
+.Order-block {
+  width: 100%;
+  float: left;
+  font-size: 15pt;
+  font-weight: 200;
+  padding-top: 30pt;
+}
+.Order-block span {
+  margin-bottom: 10pt;
+}
+#tax {
+  width: 100%;
+  float: left;
+}
+#tax span {
+  font-weight: 500;
+}
+#tax img {
+  margin-left: 40pt;
+}
+#quantity {
+  width: 100%;
+  float: left;
+}
+#quantity span {
+  margin-left: 35pt;
+  font-weight: 500;
+}
+#total {
+  width: 100%;
+  float: left;
+}
+#total img {
+  margin-left: 62pt;
+}
+#total span{
+  font-weight: 500;
+}
+#order-button {
+  float: left;
+  background-color:rgb(25, 177, 25);
+  padding: 10pt;
+  margin-top: 10pt;
+  width: 200pt;
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+}
+#order-button:hover {
+  background-color: rgb(42, 194, 42);
+}
+#cart-count {
+  font-size: 8pt;
+  background-color: black;
+  padding: 2pt 5pt;
+  border-radius: 50%;
+  color: white;
+  float: right;
+  margin-right: 15pt;
+  margin-bottom: 10pt;
 }

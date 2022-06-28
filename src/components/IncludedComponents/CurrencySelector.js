@@ -21,7 +21,7 @@ class CurrencySelector extends React.Component {
       <select className="Currency-selector" onChange={this.onSelectHandler}>
         <option value="usd">USD</option>
         <option value="eur"><img src={this.props.currencyImg}/>EUR</option>
-        <option value="uah"><img src={this.props.currencyImg}/>UAH</option>
+        <option value="yen"><img src={this.props.currencyImg}/>YEN</option>
       </select>
     );
   }

@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 import usdImg from "../assets/usd.png";
-import uahImg from "../assets/uah.png";
+import yenImg from "../assets/yen.png";
 import eurImg from "../assets/eur.png";
 
 const ADD_ITEM_TO_CART = 'ecommerce-store/main-store/ADD_ITEM_TO_CART';
@@ -121,8 +121,8 @@ const store = createStore((state = initialState, action) => {
     case CHANGE_CURRENCY: {
       let cImg = null;
       switch (action.currency) {
-        case 'uah':
-          cImg = uahImg;
+        case 'yen':
+          cImg = yenImg;
           break;
         case 'eur':
           cImg = eurImg;
@@ -140,10 +140,24 @@ const store = createStore((state = initialState, action) => {
               return { ...item, price: item.usdPrice }
             }
             case 'eur': {
-              return { ...item, price: item.usdPrice * 0.95 }
+              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100)/100 }
             }
-            case 'uah': {
-              return { ...item, price: item.usdPrice * 29.5 }
+            case 'yen': {
+              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100)/100 }
+            }
+            default: return item;
+          }
+        }),
+        cartProducts: state.cartProducts.map(item => {
+          switch (action.currency) {
+            case 'usd': {
+              return { ...item, price: item.usdPrice }
+            }
+            case 'eur': {
+              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100)/100 }
+            }
+            case 'yen': {
+              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100)/100 }
             }
             default: return item;
           }
