@@ -13,11 +13,10 @@ class Cart extends React.Component {
         {this.props.products.map(product => {
           return (
             <div key={product.id}>
-              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}><h1>{product.title}</h1></NavLink>
-              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}><img style={{width: "300px"}} src={product.photoUrl} /></NavLink>
+              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}><h1>{product.title}</h1>
+              <img style={{width: "300px"}} src={product.photoUrl} /></NavLink>
               <h2>Price: {product.price}$</h2>
-              <AddRemoveButton id={product.id} inCart={product.inCart} />
-              <NavLink to={`/ecommerce-store/product-page?id=${product.id}`}>Detail Info</NavLink>
+              <AddRemoveButton id={product.id} inCart={true} />
             </div>
           );
         })}        
@@ -28,7 +27,7 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products.filter(item => item.inCart === true)
+    products: state.cartProducts
   }
 }
 

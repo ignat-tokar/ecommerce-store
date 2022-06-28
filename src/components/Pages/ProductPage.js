@@ -49,7 +49,7 @@ class ProductPage extends React.Component {
                 />
                 {this.props.itemInfo.price}
               </div></div>
-            <AddRemoveButton id={this.props.itemInfo.id} inCart={this.props.itemInfo.inCart} />
+            <AddRemoveButton id={this.props.itemInfo.id} inCart={false} />
           </div>
         </div>
       </Wrapper>

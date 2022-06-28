@@ -168,10 +168,14 @@ select:after {
   width: 100%;
   margin-top: 30pt;
 }
+.Add-remove-button button:hover {
+  background-color: rgb(25, 177, 25);
+}
 .Add-remove-button button {
   font-size: 20pt;
   padding: 5pt 50pt;
   border: none;
   background-color: green;
   color: white;
+  cursor: pointer
 }

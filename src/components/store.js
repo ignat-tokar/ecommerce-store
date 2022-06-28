@@ -25,7 +25,7 @@ let initialState = {
         'https://m.media-amazon.com/images/I/71E5SSXdYmL._AC_SR736,920_.jpg'
       ],
       inCart: false
-    },        
+    },
     {
       id: 1,
       title: 'Brooks Distance',
@@ -86,7 +86,7 @@ let initialState = {
         'https://m.media-amazon.com/images/I/61PkcMurqAL._AC_SR736,920_.jpg'
       ],
       inCart: false
-    },    
+    },
     {
       id: 5,
       title: 'PUMA',
@@ -109,42 +109,30 @@ let initialState = {
 const store = createStore((state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM_TO_CART: {
-      return {
-        ...state, products: state.products.map(item => {
-          if (item.id === action.id) {
-            return { ...item, inCart: true }
-          } else {
-            return item;
-          }
-        })
-      };
+      let item = state.products.filter(item => item.id === action.id)[0];
+      state.cartProducts.push(item);
+      return state;
     }
     case REMOVE_ITEM_FROM_CART: {
-      return {
-        ...state, products: state.products.map(item => {
-          if (item.id === action.id) {
-            return { ...item, inCart: false }
-          } else {
-            return item;
-          }
-        })
-      };
+      let item = state.products.filter(item => item.id === action.id)[0];
+      state.cartProducts.splice(item, 1);
+      return state;      
     }
     case CHANGE_CURRENCY: {
       let cImg = null;
-      switch(action.currency) {
-        case 'uah': 
+      switch (action.currency) {
+        case 'uah':
           cImg = uahImg;
           break;
-        case 'eur': 
+        case 'eur':
           cImg = eurImg;
           break;
         default: cImg = usdImg;
       }
       console.log(cImg);
       return {
-        ...state, 
-        currency: action.currency, 
+        ...state,
+        currency: action.currency,
         currencyImg: cImg,
         products: state.products.map(item => {
           switch (action.currency) {
