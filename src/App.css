@@ -16,6 +16,7 @@ select {
   border-radius: 5pt;
   background-color: #ffffff;
   color: #000000;
+  cursor: pointer;
 }
 
 select:after {
@@ -195,7 +196,9 @@ select:after {
 }
 .Add-remove-button .Unactive {
   font-size: 20pt;
-  padding: 5pt 50pt;
+  padding: 5pt 55pt;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  float: left;
   border: none;
   background-color: rgb(83, 83, 83);
   color: white;

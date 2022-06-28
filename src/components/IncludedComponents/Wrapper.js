@@ -16,7 +16,7 @@ class Wrapper extends React.Component {
             <span>KIDS</span>
           </span>
           <CurrencySelect />
-          <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /> {this.props.quantity > 0 ? <span id="cart-count">{this.props.quantity}</span> : null}</NavLink>
+          <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /> {this.props.quantity > 0 ? <span id="cart-count" style={{marginRight: this.props.quantity>=10 ? "11pt" : "15pt"}}>{this.props.quantity}</span> : null}</NavLink>
         </div>
         <div>
           {this.props.children}

@@ -12,7 +12,7 @@ class Cart extends React.Component {
     this.state = {
       totalPrice: 0,
       taxPrice: 0
-    };  
+    }
     this.calculateTotalPrice = this.calculateTotalPrice.bind(this);
   }
 
@@ -28,7 +28,7 @@ class Cart extends React.Component {
     })
     let taxPrice = Math.round(totalPrice*0.41*100)/100;
     totalPrice = Math.round((totalPrice+taxPrice)*100)/100;
-    this.setState({totalPrice,taxPrice});  
+    this.setState({totalPrice,taxPrice});
   }
 
   render() {
