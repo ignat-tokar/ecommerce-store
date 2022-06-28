@@ -1,24 +1,35 @@
 import { NavLink } from 'react-router-dom';
 import CurrencySelect from './CurrencySelector';
 import cartImg from '../../assets/cart.png';
+import { connect } from 'react-redux';
+import React from 'react';
 
-function Wrapper(props) {
-  return (
-    <div>
-      <div className="Header-block">
-        <span className="Category-block">
-          <NavLink to="/ecommerce-store/"><span className="Selected">WOMEN</span></NavLink>
-          <span>MEN</span>
-          <span>KIDS</span>
-        </span>
-        <CurrencySelect />
-        <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /> <span id="cart-count">1</span></NavLink>
-      </div>
+class Wrapper extends React.Component {
+
+  render() {
+    return (
       <div>
-        {props.children}
+        <div className="Header-block">
+          <span className="Category-block">
+            <NavLink to="/ecommerce-store/"><span className="Selected">WOMEN</span></NavLink>
+            <span>MEN</span>
+            <span>KIDS</span>
+          </span>
+          <CurrencySelect />
+          <NavLink className="Redirect-button" to="/ecommerce-store/cart"><img src={cartImg} /> {this.props.quantity > 0 ? <span id="cart-count">{this.props.quantity}</span> : null}</NavLink>
+        </div>
+        <div>
+          {this.props.children}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Wrapper;
+const mapStateToProps = (state) => {
+  return {
+    quantity: state.quantity
+  }
+}
+
+export default connect(mapStateToProps, null)(Wrapper);

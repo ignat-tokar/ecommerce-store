@@ -3,22 +3,29 @@ a {
   color: black;
   text-decoration-line: none;
 }
-select {
-  /* -moz-appearance: none; */
-  /* -webkit-appearance: none; */
-  /* border: none; */
-  /* outline: none; */
-  font-size: 10pt;
-  padding: 10pt 10pt;
-  border: 0ch;
-  /* border-radius: 5pt; */
-  background-color: white;
-  /* color: white; */
+span {
+  user-select: none;
 }
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  font-size: 15pt;
+  padding: 10pt 10pt;
+  border-radius: 5pt;
+  background-color: #ffffff;
+  color: #000000;
+}
+
 select:after {
-  /* content: "";
-  display: block; */
-  border: 0ch;
+  content: "";
+  display: block;
+}
+.Currency-select option {
+  cursor: pointer;
+  font-size: 10pt;
+  padding: 2pt;
 }
 
 /*HEADER*/
@@ -156,8 +163,11 @@ select:after {
   float: left;
   padding: 14pt;
   margin: 2pt;
-  border: solid 2px rgb(25, 177, 25);
+  border: solid 2px rgb(131, 131, 131);
   cursor: pointer;
+}
+#color:hover {
+  border: solid 2px rgb(25, 177, 25);
 }
 #price {
   float: left;
@@ -183,6 +193,17 @@ select:after {
   color: white;
   cursor: pointer
 }
+.Add-remove-button .Unactive {
+  font-size: 20pt;
+  padding: 5pt 50pt;
+  border: none;
+  background-color: rgb(83, 83, 83);
+  color: white;
+  cursor: pointer  
+}
+.Add-remove-button .Unactive:hover {
+  background-color: rgb(119, 119, 119);
+}
 
 /* CART PAGE */
 .Cart-page {
@@ -190,7 +211,9 @@ select:after {
 }
 .Cart-page h1 {
   font-weight: 400;
-  padding: 20pt 0;
+  padding-top: 20pt;
+  padding-bottom: 20pt;
+  /* border-bottom: solid 2px grey; */
 }
 .Cart-info-block #price {
   font-size: 15pt;
@@ -198,7 +221,7 @@ select:after {
 .Cart-info-block .Info-block {
   padding: 20pt 0;
   border-top: solid 2px grey;
-  border-bottom: solid 2px grey;
+  /* border-bottom: solid 2px grey; */
   width: 95%;
 }
 .Cart-info-block .Info-block #left-side {
@@ -249,11 +272,12 @@ select:after {
 }
 
 .Order-block {
-  width: 100%;
+  width: 95%;
   float: left;
   font-size: 15pt;
   font-weight: 200;
   padding-top: 30pt;
+  border-top: solid 2px grey;
 }
 .Order-block span {
   margin-bottom: 10pt;

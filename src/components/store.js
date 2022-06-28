@@ -6,6 +6,8 @@ import eurImg from "../assets/eur.png";
 const ADD_ITEM_TO_CART = 'ecommerce-store/main-store/ADD_ITEM_TO_CART';
 const REMOVE_ITEM_FROM_CART = 'ecommerce-store/main-store/REMOVE_ITEM_FROM_CART';
 const CHANGE_CURRENCY = 'ecommerce-store/main-store/CHANGE_CURRENCY';
+const PLUS_ITEM_COUNT_IN_CART = 'ecommerce-store/main-store/PLUS_ITEM_COUNT_IN_CART';
+const MINUS_ITEM_COUNT_IN_CART = 'ecommerce-store/main-store/MINUS_ITEM_COUNT_IN_CART';
 
 let initialState = {
   currency: 'usd',
@@ -103,20 +105,62 @@ let initialState = {
       inCart: false
     }
   ],
-  cartProducts: []
+  cartProducts: [  
+  ],
+  quantity: 0
 }
 
 const store = createStore((state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM_TO_CART: {
       let item = state.products.filter(item => item.id === action.id)[0];
-      state.cartProducts.push(item);
-      return state;
+      state.cartProducts.push({ ...item, count: 1 });
+      state.products.map(item => {
+        if(item.id === action.id){
+          item.inCart = true;
+        }
+      })
+      return {...state, quantity: state.quantity+1};
     }
     case REMOVE_ITEM_FROM_CART: {
       let item = state.products.filter(item => item.id === action.id)[0];
       state.cartProducts.splice(item, 1);
-      return state;      
+      state.products.map(item => {
+        if(item.id === action.id){
+          item.inCart = false;
+        }
+      })      
+      return state;
+    }
+    case PLUS_ITEM_COUNT_IN_CART: {
+      return {
+        ...state, cartProducts: state.cartProducts.map(item => {
+          if (item.id === action.id) {
+            item.count++;
+            return item;
+          } else {
+            return item;
+          }
+        }),
+        quantity: state.quantity+1
+      }
+    }
+    case MINUS_ITEM_COUNT_IN_CART: {
+      let checkZero = false;
+      return {
+        ...state, cartProducts: state.cartProducts.map(item => {
+          if (item.id === action.id) {
+            if (item.count != 0) {
+              item.count--;
+              checkZero = true;
+            }
+            return item;
+          } else {
+            return item;
+          }
+        }),
+        quantity: checkZero ? state.quantity-1 : state.quantity
+      }
     }
     case CHANGE_CURRENCY: {
       let cImg = null;
@@ -140,10 +184,10 @@ const store = createStore((state = initialState, action) => {
               return { ...item, price: item.usdPrice }
             }
             case 'eur': {
-              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100)/100 }
+              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100) / 100 }
             }
             case 'yen': {
-              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100)/100 }
+              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100) / 100 }
             }
             default: return item;
           }
@@ -154,10 +198,10 @@ const store = createStore((state = initialState, action) => {
               return { ...item, price: item.usdPrice }
             }
             case 'eur': {
-              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100)/100 }
+              return { ...item, price: Math.round(item.usdPrice * 0.95 * 100) / 100 }
             }
             case 'yen': {
-              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100)/100 }
+              return { ...item, price: Math.round(item.usdPrice * 135.97 * 100) / 100 }
             }
             default: return item;
           }
@@ -172,6 +216,8 @@ const store = createStore((state = initialState, action) => {
 export const addItemToCart = (id) => ({ type: ADD_ITEM_TO_CART, id });
 export const removeItemFromCart = (id) => ({ type: REMOVE_ITEM_FROM_CART, id });
 export const changeCurrency = (currency) => ({ type: CHANGE_CURRENCY, currency });
+export const plusItemCount = (id) => ({ type: PLUS_ITEM_COUNT_IN_CART, id });
+export const minusItemCount = (id) => ({ type: MINUS_ITEM_COUNT_IN_CART, id });
 
 window.store = store;
 export default store;

@@ -18,7 +18,7 @@ class CurrencySelector extends React.Component {
 
   render() {
     return (
-      <select className="Currency-selector" onChange={this.onSelectHandler}>
+      <select className="Currency-selector" value={this.props.currency} onChange={this.onSelectHandler}>
         <option value="usd">USD</option>
         <option value="eur"><img src={this.props.currencyImg}/>EUR</option>
         <option value="yen"><img src={this.props.currencyImg}/>YEN</option>
@@ -29,7 +29,8 @@ class CurrencySelector extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currencyImg: state.currencyImg
+    currencyImg: state.currencyImg,
+    currency: state.currency
   }
 }
 

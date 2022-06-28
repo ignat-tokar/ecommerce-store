@@ -3,15 +3,40 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AddRemoveButton from '../IncludedComponents/AddRemoveButton';
 import Wrapper from '../IncludedComponents/Wrapper';
+import { minusItemCount, plusItemCount } from '../store';
 
 class Cart extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      totalPrice: 0,
+      taxPrice: 0
+    };  
+    this.calculateTotalPrice = this.calculateTotalPrice.bind(this);
+  }
+
+  componentDidMount() {
+    this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice() {
+    const data = Array.from(document.querySelectorAll('#price'));
+    let totalPrice = 0;
+    data.map(obj => {
+      totalPrice = totalPrice + Number.parseFloat(obj.innerText);
+    })
+    let taxPrice = Math.round(totalPrice*0.41*100)/100;
+    totalPrice = Math.round((totalPrice+taxPrice)*100)/100;
+    this.setState({totalPrice,taxPrice});  
+  }
 
   render() {
     return (
       <Wrapper>
         <div className="Cart-page">
           <h1>CART</h1>
-          {this.props.cartProducts.map(product => {
+          {this.props.cartProducts && this.props.cartProducts.map(product => {
             return (
               <div className="Cart-info-block" key={product.id}>
                 <div className="Info-block">
@@ -28,7 +53,7 @@ class Cart extends React.Component {
                           }}
                           src={this.props.currencyImg}
                         />
-                        {product.price}
+                        {Math.round(product.price*product.count*100)/100}
                       </div>
                     </div>
                     <div><span id="info">SIZE:</span>{product.sizes.map(size => <div id="size">{size}</div>)}</div>
@@ -36,9 +61,15 @@ class Cart extends React.Component {
                   </div>
                   <div id="right-side">
                     <div className="Span-block-cart">
-                      <span id="plus">+</span>
-                      <span id="count">1</span>
-                      <span id="minus">-</span>
+                      <span id="plus" onClick={()=>{
+                        this.props.plusItemCount(product.id);
+                        this.calculateTotalPrice();
+                      }}>+</span>
+                      <span id="count" key={product.count}>{product.count}</span>
+                      <span id="minus" onClick={()=>{
+                        this.props.minusItemCount(product.id);
+                        this.calculateTotalPrice();
+                      }}>-</span>
                     </div>
                     <img src={product.photoUrl} />
                   </div>
@@ -56,9 +87,9 @@ class Cart extends React.Component {
                 }}
                 src={this.props.currencyImg}
               />
-              <span>42</span>
+              <span>{this.state.taxPrice}</span>
             </span>
-            <span id="quantity">Quantity: <span>3</span></span>
+            <span id="quantity">Quantity: <span>{this.props.quantity}</span></span>
             <span id="total">Total:
               <img
                 style={{
@@ -68,7 +99,7 @@ class Cart extends React.Component {
                 }}
                 src={this.props.currencyImg}
               />
-              <span>200</span>
+              <span>{this.state.totalPrice}</span>
             </span>
             <span id="order-button">ORDER</span>
           </div>
@@ -80,10 +111,10 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
     cartProducts: state.cartProducts,
-    currencyImg: state.currencyImg
+    currencyImg: state.currencyImg,
+    quantity: state.quantity
   }
 }
 
-export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, {plusItemCount, minusItemCount})(Cart);
