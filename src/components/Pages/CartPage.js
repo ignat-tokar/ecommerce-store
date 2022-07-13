@@ -11,7 +11,8 @@ class Cart extends React.Component {
     super(props);
     this.state = {
       totalPrice: 0,
-      taxPrice: 0
+      taxPrice: 0,
+      isAdaptive: window.screen.width <= 480
     }
     this.calculateTotalPrice = this.calculateTotalPrice.bind(this);
   }
@@ -39,41 +40,79 @@ class Cart extends React.Component {
           {this.props.cartProducts && this.props.cartProducts.map(product => {
             return (
               <div className="Cart-info-block" key={product.id}>
-                <div className="Info-block">
-                  <div id="left-side">
-                    <span id="title">{product.title}</span>
-                    <span id="sub-title">{product.subTitle}</span>
-                    <div>
-                      <div id="price">
-                        <img
-                          style={{
-                            width: "17px",
-                            height: "17px",
-                            paddingRight: "1pt"
-                          }}
-                          src={this.props.currencyImg}
-                        />
-                        {Math.round(product.price*product.count*100)/100}
+                {this.state.isAdaptive
+                  ? <div className="Info-block">
+                    <div id="left-side">
+                      <span id="title">{product.title}</span>
+                      <span id="sub-title">{product.subTitle}</span>
+                      <div>
+                        <div id="price">
+                          <img
+                            style={{
+                              width: "17px",
+                              height: "17px",
+                              paddingRight: "1pt"
+                            }}
+                            src={this.props.currencyImg}
+                          />
+                          {Math.round(product.price * product.count * 100) / 100}
+                        </div>
+                      </div>
+                      <div><span id="info">SIZE:</span>{product.sizes.map(size => <div id="size">{size}</div>)}</div>
+                      <div><span id="info">COLOR:</span>{product.colors.map(color => <div id="color" style={{ backgroundColor: color }}></div>)}</div>
+                    </div>
+                    <div id="right-side">
+                      <div className="Span-block-cart">
+                        <img src={product.photoUrl} />                        
+                        <span id="plus" onClick={() => {
+                          this.props.plusItemCount(product.id);
+                          this.calculateTotalPrice();
+                        }}>+</span>
+                        <span id="count" key={product.count}>{product.count}</span>
+                        <span id="minus" onClick={() => {
+                          this.props.minusItemCount(product.id);
+                          this.calculateTotalPrice();
+                        }}>-</span>
                       </div>
                     </div>
-                    <div><span id="info">SIZE:</span>{product.sizes.map(size => <div id="size">{size}</div>)}</div>
-                    <div><span id="info">COLOR:</span>{product.colors.map(color => <div id="color" style={{ backgroundColor: color }}></div>)}</div>
                   </div>
-                  <div id="right-side">
-                    <div className="Span-block-cart">
-                      <span id="plus" onClick={()=>{
-                        this.props.plusItemCount(product.id);
-                        this.calculateTotalPrice();
-                      }}>+</span>
-                      <span id="count" key={product.count}>{product.count}</span>
-                      <span id="minus" onClick={()=>{
-                        this.props.minusItemCount(product.id);
-                        this.calculateTotalPrice();
-                      }}>-</span>
+                  : <div className="Info-block">
+                    <div id="left-side">
+                      <span id="title">{product.title}</span>
+                      <span id="sub-title">{product.subTitle}</span>
+                      <div>
+                        <div id="price">
+                          <img
+                            style={{
+                              width: "17px",
+                              height: "17px",
+                              paddingRight: "1pt"
+                            }}
+                            src={this.props.currencyImg}
+                          />
+                          {Math.round(product.price * product.count * 100) / 100}
+                        </div>
+                      </div>
+                      <div><span id="info">SIZE:</span>{product.sizes.map(size => <div id="size">{size}</div>)}</div>
+                      <div><span id="info">COLOR:</span>{product.colors.map(color => <div id="color" style={{ backgroundColor: color }}></div>)}</div>
                     </div>
-                    <img src={product.photoUrl} />
+                    <div id="right-side">
+                      <div className="Span-block-cart">
+                        <span id="plus" onClick={() => {
+                          this.props.plusItemCount(product.id);
+                          this.calculateTotalPrice();
+                        }}>+</span>
+                        <span id="count" key={product.count}>{product.count}</span>
+                        <span id="minus" onClick={() => {
+                          this.props.minusItemCount(product.id);
+                          this.calculateTotalPrice();
+                        }}>-</span>
+                      </div>
+                      <img src={product.photoUrl} />
+                    </div>
                   </div>
-                </div>
+                }
+                
               </div>
             );
           })}

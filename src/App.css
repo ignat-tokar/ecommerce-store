@@ -118,11 +118,19 @@ select:after {
   float: left;
   cursor: pointer;
 }
+.Preview-block-main-img {
+  padding-left: 100px;
+  width: 400px;
+}
 .Little-img {
   padding: 5pt;
   margin: 5pt;
   margin-left: 20pt;
+  width: 100px;
   border: solid 2px white;
+}
+.Little-img-wrapper {
+  float: left;
 }
 .Little-img:hover {
   border: solid 2px rgb(25, 177, 25);
@@ -336,4 +344,383 @@ select:after {
   float: right;
   margin-right: 15pt;
   margin-bottom: 10pt;
+}
+@media (max-width: 480px) {
+  a {
+    /* text-decoration-style: none; */
+    color: black;
+    text-decoration-line: none;
+  }
+  span {
+    user-select: none;
+  }
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    font-size: 10pt;
+    padding: 0pt 10pt;
+    border-radius: 5pt;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  select:after {
+    content: "";
+    display: block;
+  }
+  .Currency-select option {
+    cursor: pointer;
+    font-size: 10pt;
+    padding: 2pt;
+  }
+  
+  /*HEADER*/
+  .Header-block {
+    width: 100%;
+    float: left;
+    padding-top: 15pt;
+    padding-bottom: 10pt;
+  }
+  .Header-block .Category-block {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: none;
+    font-size: 8pt;
+    width: 60%;
+    float: left;
+    cursor: pointer;
+  }
+  .Header-block .Category-block span {
+    margin: 0pt;
+    margin-left: 10pt;
+  }
+  .Header-block .Category-block span:hover {
+    color: rgb(25, 177, 25);
+  }
+  .Header-block .Category-block .Selected {
+    color: rgb(25, 177, 25);
+    padding-bottom: 10pt;
+    padding-right: 10pt;
+    padding-left: 10pt;
+    border-bottom: solid 2px rgb(25, 177, 25);
+  }
+  .Header-block .Currency-select {
+    width: 5%;
+    padding-bottom: 5pt;
+    float: left;
+  }
+  .Header-block .Redirect-button {
+    width: 5%;
+    float: right;
+  }
+  
+  .Redirect-button {
+    background-color: white;
+    padding: 0;
+    padding-right: 10pt;
+    font-size: 0pt;
+    margin-left: 0pt;
+    margin-top: 0pt;
+  }
+  .Redirect-button img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  
+  /*PRODUCT OVERVIEW MAIN*/
+  .Main-page-overview {
+    padding-left: 0pt;
+  }
+  .Product-overview-main {
+    width: 100%;
+    float: left;
+    padding: 0%;
+    min-height: 60vh;
+    margin: 0%;
+  }
+  .Product-overview-main:hover {
+    box-shadow: 0px 0px 30px grey;
+  }
+  .Product-overview-main img {
+    width: 100%;
+    /* height: 300px; */
+    float: left;
+    padding-top: 20pt;
+    padding-bottom: 4pt;
+  }
+  .Product-overview-main span {
+    width: 100%;
+    float: left;
+    padding-top: 15pt;
+    font-size: 20pt;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .Product-overview-main .Price {
+    font-weight: bold;
+    text-align: right;
+  }
+  .Product-overview-main span img{
+    float: right;
+    margin-top: 0pt;
+    padding-top: 3pt;
+    margin-right: 35%;
+    margin-left: 1%;
+    width: 20pt;
+  }
+  /* PRODUCT PAGE */
+  .Product-info {
+    margin-top: 0pt;
+  }
+  .Preview-block {
+    width: 100%;
+    float: left;
+    cursor: pointer;
+  }
+  .Preview-block-main-img {
+    padding-top: 20pt;
+    padding-left: 0pt;
+    padding-bottom: 20pt;
+  }
+  .Little-img {
+    padding: 5pt;
+    margin: 5pt;
+    margin-left: 20pt;
+    border: solid 2px white;
+  }
+  .Little-img-wrapper {
+    float: left;
+    width: 90%;
+    padding-left: 10%;
+  }  
+  .Little-img-block {
+    width: 100%;
+  }
+  .Little-img {
+    width: 10%;
+    float: left;
+  }
+  .Little-img:hover {
+    border: solid 2px rgb(25, 177, 25);
+  }
+  .Info-block {
+    width: 90%;
+    float: left;
+    padding-top: 20pt;
+    padding-left: 10%;
+  }
+  .Info-block span {
+    width: 100%;
+    float: left;
+  }
+  #title {
+    font-size: 20pt;
+    font-weight: 400;
+  }
+  #sub-title {
+    font-size: 15pt;
+    font-weight: 200;
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+  }
+  #info {
+    font-weight: 400;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+  }
+  #size {
+    float: left;
+    padding: 8pt;
+    margin: 2pt;
+    cursor: pointer;
+  }
+  #size:hover {
+    background-color: black;
+    color: white;
+  }
+  #color {
+    float: left;
+    padding: 14pt;
+    margin: 2pt;
+    border: solid 2px rgb(131, 131, 131);
+    cursor: pointer;
+  }
+  #color:hover {
+    border: solid 2px rgb(25, 177, 25);
+  }
+  #price {
+    float: left;
+    font-weight: 500;
+    font-size: 20pt;
+  }
+  #price img {
+    padding-right: 5pt;
+  }
+  .Add-remove-button {
+    float: left;
+    width: 100%;
+    margin-top: 30pt;
+  }
+  .Add-remove-button button:hover {
+    background-color: rgb(42, 194, 42);
+  }
+  .Add-remove-button button {
+    font-size: 20pt;
+    padding: 5pt 50pt;
+    border: none;
+    background-color: rgb(25, 177, 25);
+    color: white;
+    cursor: pointer
+  }
+  .Add-remove-button .Unactive {
+    font-size: 20pt;
+    padding: 5pt 55pt;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    float: left;
+    border: none;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    cursor: pointer  
+  }
+  .Add-remove-button .Unactive:hover {
+    background-color: rgb(119, 119, 119);
+  }
+  
+  /* CART PAGE */
+  .Cart-page {
+    margin-left: 20pt;
+  }
+  .Cart-page h1 {
+    font-weight: 400;
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+    /* border-bottom: solid 2px grey; */
+  }
+  .Cart-info-block #price {
+    font-size: 15pt;
+  }
+  .Cart-info-block .Info-block {
+    padding: 20pt 0;
+    border-top: solid 2px grey;
+    /* border-bottom: solid 2px grey; */
+    width: 90%;
+  }
+  .Cart-info-block .Info-block #left-side {
+    width: 90%;
+    float: left;
+  }
+  .Cart-info-block .Info-block #right-side {
+    width: 100%;
+    float: left;
+  }
+  .Span-block-cart {
+    width: 100%;
+    float: left;
+  }
+  .Span-block-cart span {
+    font-size: 15pt;
+    float: left;
+  }
+  #plus {
+    font-size: 20pt;
+    font-weight: 100;
+    width: 10%;
+    padding: 3pt 5pt;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+    float: left;
+  }
+  #minus {
+    font-size: 20pt;
+    font-weight: 100;
+    width: 10%;
+    /* padding: 0pt 5pt; */
+    padding: 3pt 5pt;
+    text-align: center;
+    border: 1px solid black;  
+    cursor: pointer;
+    float: left;
+  }
+  #count {
+    text-align: center;
+    width: 70%;
+    float: left;
+    padding: 5pt 0;
+  }
+  #right-side img {
+    width: 100%;
+    float: left;
+    /* padding-top: 10pt;
+    padding-left: 10pt; */
+    padding: 20pt 0;
+    cursor: pointer;
+  }
+  
+  .Order-block {
+    width: 90%;
+    float: left;
+    font-size: 15pt;
+    font-weight: 200;
+    padding-top: 30pt;
+    border-top: solid 2px grey;
+  }
+  .Order-block span {
+    margin-bottom: 10pt;
+  }
+  #tax {
+    width: 100%;
+    float: left;
+  }
+  #tax span {
+    font-weight: 500;
+  }
+  #tax img {
+    margin-left: 40pt;
+  }
+  #quantity {
+    width: 100%;
+    float: left;
+  }
+  #quantity span {
+    margin-left: 35pt;
+    font-weight: 500;
+  }
+  #total {
+    width: 100%;
+    float: left;
+  }
+  #total img {
+    margin-left: 62pt;
+  }
+  #total span{
+    font-weight: 500;
+  }
+  #order-button {
+    float: left;
+    background-color:rgb(25, 177, 25);
+    padding: 10pt;
+    margin-top: 10pt;
+    width: 230pt;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  #order-button:hover {
+    background-color: rgb(42, 194, 42);
+  }
+  #cart-count {
+    font-size: 8pt;
+    background-color: black;
+    padding: 2pt 5pt;
+    border-radius: 50%;
+    color: white;
+    float: right;
+    margin-right: 15pt;
+    margin-bottom: 10pt;
+  }
 }

@@ -9,6 +9,7 @@ class ProductPage extends React.Component {
     super(props);
     this.state = {
       title: this.props.itemInfo.title,
+      isAdaptive: window.screen.width <= 480
     }
   }
 
@@ -16,23 +17,37 @@ class ProductPage extends React.Component {
     return (
       <Wrapper>
         <div className="Product-info" key={this.props.itemInfo.id}>
-          <div className="Preview-block">
-            <div style={{ float: "left" }}>
-              {this.props.itemInfo.allPhotos.map((photo, index) => {
-                return (
-                  <div key={index}>
-                    <img style={{
-                      width: "100px",
-                    }} className="Little-img" src={photo} />
-                  </div>
-                );
-              })}
+          {this.state.isAdaptive
+            ? <div className="Preview-block">
+              <img
+                className="Preview-block-main-img"
+                src={this.props.itemInfo.photoUrl} />
+              <div className="Little-img-wrapper">
+                {this.props.itemInfo.allPhotos.map((photo, index) => {
+                  return (
+                    <div className="Little-img-block" key={index}>
+                      <img className="Little-img" src={photo} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <img style={{
-              width: "400px",
-              paddingLeft: "100px"
-            }} src={this.props.itemInfo.photoUrl} />
-          </div>
+            : <div className="Preview-block">
+              <div className="Little-img-wrapper">
+                {this.props.itemInfo.allPhotos.map((photo, index) => {
+                  return (
+                    <div className="Little-img-block" key={index}>
+                      <img className="Little-img" src={photo} />
+                    </div>
+                  );
+                })}
+              </div>
+              <img
+                className="Preview-block-main-img"
+                src={this.props.itemInfo.photoUrl} />
+            </div>
+          }
+
           <div className="Info-block">
             <span id="title">{this.props.itemInfo.title}</span>
             <span id="sub-title">{this.props.itemInfo.subTitle}</span>
